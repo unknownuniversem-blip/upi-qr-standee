@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>UPI QR Code & Counter Standee Generator (दुकान QR कोड स्टैंडी)</title>
-  <meta name="description" content="100% Free & Private in-browser UPI QR Generator. Create printable counter standees, table tents, and fixed-amount payment QR codes for Google Pay, PhonePe, and Paytm with zero tracking.">
+  <meta name="description" content="100% Free & Private in-browser UPI QR Generator. Create printable counter standees with Google Pay, PhonePe, and Paytm logos with zero tracking.">
 
   <!-- QRCode.js client-side library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -112,7 +112,7 @@
       margin: 0 auto;
     }
 
-    /* Studio 2-Column Layout */
+    /* 2-Column Studio Layout */
     .studio-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -121,7 +121,7 @@
     }
     @media (min-width: 820px) {
       .studio-grid {
-        grid-template-columns: 400px 1fr;
+        grid-template-columns: 410px 1fr;
         align-items: start;
       }
     }
@@ -171,7 +171,7 @@
       gap: 10px;
     }
 
-    /* Live Standee Preview Box */
+    /* STANDEE PREVIEW (REALISTIC COUNTER TENT) */
     .preview-wrapper {
       display: flex;
       flex-direction: column;
@@ -180,33 +180,42 @@
     }
     .standee-container {
       width: 100%;
-      max-width: 380px;
+      max-width: 390px;
       background: #ffffff;
       color: #0f172a;
       border-radius: 18px;
       box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-      padding: 1.5rem;
+      padding: 1.6rem 1.4rem;
       text-align: center;
-      border: 3px solid #10b981;
+      border: 3.5px solid #10b981;
       position: relative;
     }
-    .standee-badge {
-      display: inline-block;
-      background: #10b981;
-      color: #ffffff;
-      font-weight: 800;
-      font-size: 0.78rem;
-      padding: 4px 14px;
-      border-radius: 9999px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.6rem;
+    .standee-header-strip {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 0.75rem;
     }
+    .brand-pill {
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 5px;
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+    }
+    .pill-gpay { background: #1a73e8; }
+    .pill-phonepe { background: #5f259f; }
+    .pill-paytm { background: #00baf2; }
+    .pill-bhim { background: #00796b; }
+
     .shop-title {
       font-size: 1.35rem;
       font-weight: 900;
       color: #0f172a;
-      line-height: 1.2;
+      line-height: 1.25;
       margin-bottom: 0.2rem;
     }
     .shop-vpa {
@@ -214,7 +223,7 @@
       font-weight: 700;
       color: #64748b;
       font-family: monospace;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
     }
     .qr-frame {
       background: #ffffff;
@@ -224,7 +233,8 @@
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
+      position: relative;
     }
     .qr-frame img, .qr-frame canvas {
       display: block;
@@ -233,32 +243,37 @@
     .amount-pill {
       display: inline-block;
       background: #f1f5f9;
-      border: 1px solid #cbd5e1;
+      border: 1.5px solid #cbd5e1;
       color: #0f172a;
-      font-weight: 800;
-      font-size: 0.95rem;
-      padding: 4px 16px;
+      font-weight: 900;
+      font-size: 1.05rem;
+      padding: 5px 18px;
       border-radius: 8px;
       margin-bottom: 0.8rem;
     }
-    .app-icons-strip {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      border-top: 1px solid #e2e8f0;
-      padding-top: 0.8rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #475569;
-    }
-    .accepted-text {
+    .accepted-tag {
       font-size: 0.72rem;
       font-weight: 800;
-      color: #64748b;
+      color: #475569;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      margin-bottom: 4px;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .app-logos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 0.8rem;
+    }
+    .app-badge-item {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 4px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: #1e293b;
     }
 
     /* Actions */
@@ -294,7 +309,7 @@
 
     /* Custom Filename Field */
     .filename-field-box {
-      margin-top: 1rem;
+      margin-top: 0.8rem;
       margin-bottom: 0.8rem;
     }
     .filename-input-wrap {
@@ -325,7 +340,7 @@
       user-select: none;
     }
 
-    /* Completion Modal */
+    /* COMPLETION MODAL POPUP */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -343,11 +358,13 @@
       border: 1.5px solid var(--border);
       border-radius: var(--radius);
       width: 100%;
-      max-width: 480px;
+      max-width: 500px;
       padding: 1.6rem;
       text-align: center;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
       animation: popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      max-height: 92vh;
+      overflow-y: auto;
     }
     @keyframes popIn {
       from { transform: scale(0.92); opacity: 0; }
@@ -355,7 +372,7 @@
     }
     .modal-icon { font-size: 2.8rem; margin-bottom: 0.4rem; display: block; }
     .modal-title { font-size: 1.25rem; font-weight: 900; color: #fff; margin-bottom: 0.3rem; }
-    .modal-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin-bottom: 1.1rem; }
+    .modal-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.5; margin-bottom: 1rem; }
     .modal-meta-box {
       background: var(--card-inner);
       border: 1px solid var(--border);
@@ -368,6 +385,60 @@
     }
     .modal-meta-box div { display: flex; justify-content: space-between; margin-bottom: 4px; }
     .modal-meta-box div:last-child { margin-bottom: 0; }
+
+    /* IN-MODAL APPS ECOSYSTEM STRIP */
+    .modal-eco-wrap {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-bottom: 1.2rem;
+      text-align: left;
+    }
+    .modal-eco-label {
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .modal-apps-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .modal-app-card {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 10px;
+      text-decoration: none;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+    }
+    .modal-app-card:hover {
+      border-color: var(--primary);
+      background: rgba(16, 185, 129, 0.06);
+    }
+    .modal-app-icon { font-size: 1.3rem; flex-shrink: 0; }
+    .modal-app-info strong {
+      display: block;
+      font-size: 0.78rem;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .modal-app-info span {
+      display: block;
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
     .modal-btn-row { display: flex; flex-direction: column; gap: 8px; }
     .btn-modal-primary {
       background: var(--primary);
@@ -387,8 +458,9 @@
       cursor: pointer;
       padding: 6px;
     }
+    .btn-modal-close:hover { color: #fff; }
 
-    /* Print Stylesheet for Physical Standee Counters */
+    /* Print Stylesheet for Counters */
     @media print {
       body * { visibility: hidden; }
       #printableStandee, #printableStandee * { visibility: visible; }
@@ -400,7 +472,7 @@
         width: 100%;
         max-width: 480px;
         box-shadow: none;
-        border: 2px solid #000;
+        border: 2.5px solid #000;
       }
     }
 
@@ -466,19 +538,13 @@
       <span style="color:#334155;">|</span>
       <a href="https://unknownuniversem-blip.github.io/pdf-smart-tools/" style="color:#ef4444; text-decoration:none; font-weight:600; white-space:nowrap;">📄 PDF Tools</a>
       <span style="color:#334155;">|</span>
+      <a href="https://unknownuniversem-blip.github.io/gst-quick-calc/" style="color:#94a3b8; text-decoration:none; font-weight:600; white-space:nowrap;">🧾 GST Calc</a>
+      <span style="color:#334155;">|</span>
+      <a href="https://unknownuniversem-blip.github.io/wa-direct/" style="color:#94a3b8; text-decoration:none; font-weight:600; white-space:nowrap;">💬 WA Direct</a>
+      <span style="color:#334155;">|</span>
       <a href="https://unknownuniversem-blip.github.io/krutidev-unicode-converter/" style="color:#38bdf8; text-decoration:none; font-weight:600; white-space:nowrap;">🔤 फॉन्ट कनवर्टर</a>
       <span style="color:#334155;">|</span>
       <a href="https://unknownuniversem-blip.github.io/open-astrologer/" style="color:#f59e0b; text-decoration:none; font-weight:600; white-space:nowrap;">🔮 OpenAstrologer</a>
-      <span style="color:#334155;">|</span>
-      <a href="https://unknownuniversem-blip.github.io/gst-quick-calc/" style="color:#94a3b8; text-decoration:none; font-weight:600; white-space:nowrap;">🧾 GST Calc</a>
-      <span style="color:#334155;">|</span>
-      <a href="https://unknownuniversem-blip.github.io/passport-photo-grid/" style="color:#38bdf8; text-decoration:none; font-weight:600; white-space:nowrap;">📷 पासपोर्ट ग्रिड</a>
-      <span style="color:#334155;">|</span>
-      <a href="https://unknownuniversem-blip.github.io/age-eligibility-calc/" style="color:#38bdf8; text-decoration:none; font-weight:600; white-space:nowrap;">⏱ आयु व पात्रता</a>
-      <span style="color:#334155;">|</span>
-      <a href="https://unknownuniversem-blip.github.io/land-converter/" style="color:#10b981; text-decoration:none; font-weight:600; white-space:nowrap;">🌾 जमीन नाप</a>
-      <span style="color:#334155;">|</span>
-      <a href="https://unknownuniversem-blip.github.io/wa-direct/" style="color:#94a3b8; text-decoration:none; font-weight:600; white-space:nowrap;">💬 WA Direct</a>
     </div>
   </div>
 
@@ -502,7 +568,7 @@
       </div>
 
       <h1 id="txtTitle">Printable UPI QR Code & Counter Standee Maker</h1>
-      <p id="txtSubtitle">Generate custom A4 counter standees, table tents, and fixed-amount payment QR codes for any shop or business. Zero server storage, zero commissions.</p>
+      <p id="txtSubtitle">Generate custom A4 counter standees with official Google Pay, PhonePe & Paytm logos for your shop. 100% private, zero commissions.</p>
     </header>
 
     <div class="studio-grid">
@@ -526,14 +592,14 @@
             <label id="lblStandeeTheme">Standee Color Theme</label>
             <select id="selTheme" onchange="applyTheme()">
               <option value="#10b981" selected>Emerald Green (सुरक्षित)</option>
-              <option value="#0284c7">Royal Blue (Paytm/GPay)</option>
-              <option value="#6366f1">Indigo Purple (PhonePe Style)</option>
+              <option value="#0284c7">Paytm / GPay Blue (विश्वसनीय)</option>
+              <option value="#5f259f">PhonePe Indigo (आकर्षक)</option>
               <option value="#0f172a">Classic Dark (प्रीमियम)</option>
             </select>
           </div>
         </div>
 
-        <label id="lblNote">Payment Note / Order Ref (Optional)</label>
+        <label id="lblNote">Payment Note / Bill Ref (Optional)</label>
         <input type="text" id="inNote" placeholder="e.g. Counter Payment" oninput="generateQr()">
 
         <!-- Custom Filename -->
@@ -553,10 +619,16 @@
         </button>
       </div>
 
-      <!-- LIVE STANDEE PREVIEW -->
+      <!-- LIVE STANDEE PREVIEW (WITH OFFICIAL LOGOS) -->
       <div class="preview-wrapper">
         <div class="standee-container" id="printableStandee">
-          <span class="standee-badge" id="previewThemeBadge">Scan & Pay Any UPI App</span>
+          <div class="standee-header-strip">
+            <span class="brand-pill pill-gpay">GPay</span>
+            <span class="brand-pill pill-phonepe">PhonePe</span>
+            <span class="brand-pill pill-paytm">Paytm</span>
+            <span class="brand-pill pill-bhim">BHIM UPI</span>
+          </div>
+
           <div class="shop-title" id="prevShopName">Gupta General Store</div>
           <div class="shop-vpa" id="prevVpa">guptageneralstore@okaxis</div>
 
@@ -568,9 +640,12 @@
             <div class="amount-pill" id="prevAmount">Pay: ₹0</div>
           </div>
 
-          <div class="accepted-text" id="txtAccepted">Accepted on all UPI Apps:</div>
-          <div class="app-icons-strip">
-            <span>Google Pay</span> • <span>PhonePe</span> • <span>Paytm</span> • <span>BHIM</span>
+          <div class="accepted-tag" id="txtAccepted">Scan & Pay Using Any UPI App</div>
+          <div class="app-logos-grid">
+            <div class="app-badge-item" style="color:#1a73e8;">Google Pay</div>
+            <div class="app-badge-item" style="color:#5f259f;">PhonePe</div>
+            <div class="app-badge-item" style="color:#00baf2;">Paytm</div>
+            <div class="app-badge-item" style="color:#00796b;">BHIM UPI</div>
           </div>
         </div>
       </div>
@@ -611,7 +686,7 @@
     </footer>
   </div>
 
-  <!-- COMPLETION MODAL POPUP -->
+  <!-- COMPLETION MODAL POPUP WITH CROSS-APP SHORTCUTS -->
   <div class="modal-overlay" id="completionModal">
     <div class="modal-card">
       <span class="modal-icon">🎉</span>
@@ -621,12 +696,49 @@
       <div class="modal-meta-box">
         <div><span>Filename:</span> <strong id="modalFileName" style="color:#fff;">upi_standee.png</strong></div>
         <div><span>Resolution:</span> <strong style="color:var(--primary);">300 DPI Print Quality</strong></div>
-        <div><span>Security Status:</span> <strong style="color:var(--primary);">100% Private (0 Data Tracked)</strong></div>
+        <div><span>Privacy Verification:</span> <strong style="color:var(--primary);">100% Client-Side (0 Data Stored)</strong></div>
+      </div>
+
+      <!-- IN-POPUP COMPANION APPS GRID -->
+      <div class="modal-eco-wrap">
+        <div class="modal-eco-label" id="lblPopupEco">
+          <span>⚡ Helpful Tools for Merchants & Businesses:</span>
+        </div>
+        <div class="modal-apps-grid">
+          <a href="https://unknownuniversem-blip.github.io/gst-quick-calc/" target="_blank" class="modal-app-card">
+            <span class="modal-app-icon">🧾</span>
+            <div class="modal-app-info">
+              <strong>GST Calculator</strong>
+              <span>Forward & Reverse Billing</span>
+            </div>
+          </a>
+          <a href="https://unknownuniversem-blip.github.io/wa-direct/" target="_blank" class="modal-app-card">
+            <span class="modal-app-icon">💬</span>
+            <div class="modal-app-info">
+              <strong>WA Direct</strong>
+              <span>Send Invoices Without Saving</span>
+            </div>
+          </a>
+          <a href="https://unknownuniversem-blip.github.io/pdf-smart-tools/" target="_blank" class="modal-app-card">
+            <span class="modal-app-icon">📄</span>
+            <div class="modal-app-info">
+              <strong>PDF Tools</strong>
+              <span>Merge Vendor Invoices</span>
+            </div>
+          </a>
+          <a href="https://unknownuniversem-blip.github.io/land-converter/" target="_blank" class="modal-app-card">
+            <span class="modal-app-icon">🌾</span>
+            <div class="modal-app-info">
+              <strong>Land Converter</strong>
+              <span>Shop Area & Circle Rates</span>
+            </div>
+          </a>
+        </div>
       </div>
 
       <div class="modal-btn-row">
         <button type="button" class="btn-modal-primary" onclick="closeModal()">
-          ✓ Great, Continue
+          ✓ Start Next / Continue
         </button>
         <button type="button" class="btn-modal-close" onclick="closeModal()">
           Close
@@ -649,14 +761,13 @@
       const amount = document.getElementById('inAmount').value.trim();
       const note = document.getElementById('inNote').value.trim();
 
-      // Update Preview Card Text
       document.getElementById('prevShopName').innerText = name;
       document.getElementById('prevVpa').innerText = vpa || 'example@upi';
 
       const amtWrap = document.getElementById('prevAmountWrap');
       if (amount && Number(amount) > 0) {
         amtWrap.style.display = 'block';
-        document.getElementById('prevAmount').innerText = `Pay: ₹${amount}`;
+        document.getElementById('prevAmount').innerText = `Pay Amount: ₹${amount}`;
       } else {
         amtWrap.style.display = 'none';
       }
@@ -670,7 +781,6 @@
         upiUrl += `&tn=${encodeURIComponent(note)}`;
       }
 
-      // Render QR
       const qrContainer = document.getElementById('qrcode');
       qrContainer.innerHTML = '';
       qrObj = new QRCode(qrContainer, {
@@ -686,10 +796,7 @@
     function applyTheme() {
       const themeColor = document.getElementById('selTheme').value;
       const standee = document.getElementById('printableStandee');
-      const badge = document.getElementById('previewThemeBadge');
-
       standee.style.borderColor = themeColor;
-      badge.style.backgroundColor = themeColor;
     }
 
     async function downloadStandeePng() {
@@ -723,7 +830,7 @@
       if (currentLang === 'hi') {
         document.getElementById('btnLangText').innerText = 'Switch to English';
         document.getElementById('txtTitle').innerText = 'दुकान UPI QR कोड व काउंटर स्टैंडी मेकर';
-        document.getElementById('txtSubtitle').innerText = 'Google Pay, PhonePe और Paytm के लिए प्रिंट योग्य काउंटर स्टैंडी और निश्चित राशि का बिलिंग QR कोड मिनटों में बनाएं। 100% सुरक्षित।';
+        document.getElementById('txtSubtitle').innerText = 'Google Pay, PhonePe और Paytm लोगो के साथ प्रिंट योग्य काउंटर स्टैंडी और निश्चित राशि का बिलिंग QR कोड मिनटों में बनाएं। 100% सुरक्षित।';
         document.getElementById('txtFormHead').innerText = 'व्यापार व भुगतान विवरण (Payment Details)';
         document.getElementById('txtFormSub').innerText = 'अपना UPI ID दर्ज करें, स्टैंडी तुरंत लाइव बन जाएगी';
         document.getElementById('lblUpiId').innerText = 'UPI ID / VPA (उदा. 9876543210@paytm, shop@okhdfcbank) *';
@@ -733,27 +840,27 @@
         document.getElementById('lblNote').innerText = 'भुगतान नोट / ऑर्डर विवरण (वैकल्पिक)';
         document.getElementById('lblCustomFilename').innerText = 'डाउनलोड फाइल का नाम:';
         document.getElementById('btnDownload').innerText = '📥 प्रिंटेबल स्टैंडी डाउनलोड करें (PNG)';
-        document.getElementById('btnPrint').innerText = '🖨️ सीधे स्टैंडी प्रिंट करें (Ctrl+P)';
-        document.getElementById('previewThemeBadge').innerText = 'किसी भी UPI ऐप से स्कैन व भुगतान करें';
-        document.getElementById('txtAccepted').innerText = 'सभी प्रमुख UPI ऐप्स पर मान्य:';
+        document.getElementById('btnPrint').innerText = '🖨️️ सीधे स्टैंडी प्रिंट करें (Ctrl+P)';
+        document.getElementById('txtAccepted').innerText = 'किसी भी UPI ऐप से स्कैन व भुगतान करें:';
         document.getElementById('txtZeroStorage').innerText = '100% प्राइवेट: आपकी कोई भी UPI ID, दुकान का नाम या बिक्री किसी सर्वर पर स्टोर नहीं होती। QR कोड सीधे आधिकारिक NPCI मानकों पर बनता है।';
+        document.getElementById('lblPopupEco').innerText = '⚡ व्यापारियों व दुकानों के लिए उपयोगी टूल्स:';
       } else {
         document.getElementById('btnLangText').innerText = 'हिंदी में बदलें (Hindi)';
         document.getElementById('txtTitle').innerText = 'Printable UPI QR Code & Counter Standee Maker';
-        document.getElementById('txtSubtitle').innerText = 'Generate custom A4 counter standees, table tents, and fixed-amount payment QR codes for any shop or business. Zero server storage, zero commissions.';
+        document.getElementById('txtSubtitle').innerText = 'Generate custom A4 counter standees with official Google Pay, PhonePe & Paytm logos for your shop. 100% private, zero commissions.';
         document.getElementById('txtFormHead').innerText = 'Business & Payment Details';
         document.getElementById('txtFormSub').innerText = 'Enter your UPI VPA address to instantly generate the live QR code';
         document.getElementById('lblUpiId').innerText = 'UPI ID / VPA (e.g. name@upi, mob@paytm, mob@ybl) *';
         document.getElementById('lblShopName').innerText = 'Shop / Merchant Display Name *';
         document.getElementById('lblAmount').innerText = 'Fixed Amount (₹ Optional)';
         document.getElementById('lblStandeeTheme').innerText = 'Standee Color Theme';
-        document.getElementById('lblNote').innerText = 'Payment Note / Order Ref (Optional)';
+        document.getElementById('lblNote').innerText = 'Payment Note / Bill Ref (Optional)';
         document.getElementById('lblCustomFilename').innerText = 'Output File Name (फाइल का नाम):';
         document.getElementById('btnDownload').innerText = '📥 Download Printable High-Res Standee';
-        document.getElementById('btnPrint').innerText = '🖨️️ Direct Print Counter Standee (Ctrl+P)';
-        document.getElementById('previewThemeBadge').innerText = 'Scan & Pay Any UPI App';
-        document.getElementById('txtAccepted').innerText = 'Accepted on all UPI Apps:';
+        document.getElementById('btnPrint').innerText = '🖨 Direct Print Counter Standee (Ctrl+P)';
+        document.getElementById('txtAccepted').innerText = 'Scan & Pay Using Any UPI App';
         document.getElementById('txtZeroStorage').innerText = '100% Private & In-Browser: Your UPI VPA, shop details, and revenue are not stored on any remote server. The QR payload compiles strictly according to official NPCI standards.';
+        document.getElementById('lblPopupEco').innerText = '⚡ Helpful Tools for Merchants & Businesses:';
       }
     }
   </script>
